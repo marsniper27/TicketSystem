@@ -17,8 +17,8 @@ module.exports = {
         async function findOrCreateTicketCategory() {
             // Fetch all categories
             const categories = await guild.channels.fetch().then(channels => channels.filter(ch => ch.type === ChannelType.GuildCategory && ch.name.startsWith('Tickets')));
-            let ticketCategory = categories.find(cat => cat.children.size > 50);
-
+            let ticketCategory = categories.find(cat => cat.children.cache.size < 50);
+            
             // If no suitable category found, create a new one
             if (!ticketCategory) {
                 const categoryCount = categories.size + 1;
