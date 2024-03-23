@@ -1,7 +1,8 @@
 // createTicket.js
 require('dotenv').config();
 const { SlashCommandBuilder, ChannelType, PermissionFlagsBits, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
-const { findEntryByID, saveEntry } = require('../../utils/db'); // Assuming removeEntry is correctly implemented in your database utility
+// const { findEntryByID, saveEntry } = require('../../utils/db'); // Assuming removeEntry is correctly implemented in your database utility
+const { findEntryByID, saveEntry } = require("mars-simple-mongodb"); // Adjust the import path as necessary
 
 module.exports = {
     data: new SlashCommandBuilder()
